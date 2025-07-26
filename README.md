@@ -1,6 +1,9 @@
 # just run 
 docker compose up 
 
+# open
+http://localhost
+
 # CRED (this is default CRED, you can register for the user role after)
 login: 
 (admin)
