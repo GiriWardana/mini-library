@@ -1,6 +1,18 @@
 # just run 
 docker compose up 
-# or if using 3 parties 
+
+# CRED (this is default CRED, you can register for the user role after)
+login: 
+(admin)
+username = admin
+password = password
+
+(user)
+username = user1
+password = password
+
+
+# if using 3 parties 
 docker-compose up
 
 # or just using sudo if need permission 
