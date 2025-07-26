@@ -1,96 +1,106 @@
-# just run 
-docker compose up 
-
-# open
-http://localhost
-
-# CRED (this is default CRED, you can register for the user role after)
-login: 
-(admin)
-username = admin
-password = password
-
-(user)
-username = user1
-password = password
-
-
-# if using 3 parties 
-docker-compose up
-
-# or just using sudo if need permission 
-sudo docker compose up 
-
-# you can run 
-sudo docker compose -f docker-compose-dev.yaml up
-# for fast development / hot reload, but it need some settings in local
-
-
-####  SPECIFICATION
 # 📚 Mini Library Management System
 
-A full-stack mini library management system built with **Golang (Gin)** and **Vue.js (Vue 3)**.  
-This system allows user registration, login, role-based access control, and book borrowing/returning functionalities.
+A full-stack mini library system built with **Golang (Gin)** and **Vue.js (Vue 3)**.  
+It supports user registration, login, role-based access control, and book borrowing/returning functionalities.
 
 ---
 
-## 🚀 Overview
+## 🚀 Quick Start
 
-This project is a mini library system where:
-- Admins can manage books and view all borrowing histories.
-- Users can browse books and borrow or return them.
+### 🔧 Run the App
 
-The project includes:
-- Backend RESTful API using Golang.
-- Frontend web application using Vue 3.
-- JWT-based authentication and role-based authorization.
+```bash
+docker compose up
+```
+
+Then open your browser:
+
+```
+http://localhost
+```
+
+---
+
+### 🔐 Default Credentials
+
+> You can register a new user (as a regular user). Use the following default credentials for testing:
+
+**Admin:**
+- Username: `admin`
+- Password: `password`
+
+**User:**
+- Username: `user1`
+- Password: `password`
+
+---
+
+### 🧪 Development Mode (Hot Reload)
+
+For faster development with hot reload (requires local configuration):
+
+```bash
+sudo docker compose -f docker-compose-dev.yaml up
+```
+
+---
+
+### 🐳 Running with Docker Compose
+
+If `docker compose` is not available, try:
+
+```bash
+docker-compose up
+```
+
+Or with elevated permissions:
+
+```bash
+sudo docker compose up
+```
 
 ---
 
 ## 🎯 Main Objectives
 
-1. Build a RESTful API using Golang.
-2. Build a Vue.js web frontend that consumes the API.
-3. Implement authentication and role-based authorization using JWT.
+1. Build a RESTful API using **Golang**.
+2. Create a **Vue.js** frontend that consumes the API.
+3. Implement **JWT**-based authentication with role-based authorization.
 
 ---
 
 ## ✨ Features
 
-### 1. 🔐 Authentication (Required)
-- Register and login endpoints.
-- Two user roles: `admin`, `user`.
-- Role-based access control:
-  - **Admin**: Can add, edit, and delete books.
-  - **User**: Can only borrow and return books.
+### 🔐 Authentication & Authorization
+- Login & register endpoints.
+- Two roles: `admin` and `user`.
+- Role-based permissions:
+  - **Admin**: Manage books and view all borrowing histories.
+  - **User**: Borrow, return, and view their own borrowing history.
 
-### 2. 📖 Book Management
-- **Admin can:**
-  - Add new books (title, author, stock).
-  - Edit book information.
-  - Delete books.
-- **All users can:**
-  - View list of books.
-  - View book details.
+### 📖 Book Management
+- **Admin** can:
+  - Add, edit, and delete books.
+- **All users** can:
+  - View book lists and details.
 
-### 3. 📦 Borrowing System
-- **Users can:**
-  - Borrow books (if stock is available).
-  - Return borrowed books.
-  - View their own borrowing history.
-- **Admins can:**
-  - View all borrowing history.
+### 📦 Borrowing System
+- **Users** can:
+  - Borrow available books.
+  - Return previously borrowed books.
+  - Track their borrowing history.
+- **Admins** can:
+  - View all borrowing histories.
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
 ### Backend
-- Golang
-- Gin Web Framework
-- RESTful API
-- JWT Authentication
+- Golang (Gin)
 - PostgreSQL
+- JWT for auth
+- RESTful API
 
 ### Frontend
 - Vue 3 (Composition API)
